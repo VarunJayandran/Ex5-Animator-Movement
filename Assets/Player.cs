@@ -1,17 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class player : MonoBehaviour
 {
-    
-    void start()
+    public Animator animator;
+    public float intputX;
+    public float intputY;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
-        // type the code here
+        intputX = Input.GetAxis("Horizontal");
+        intputY = Input.GetAxis("Vertical");
+
+        animator.SetFloat("inputX", intputX);
+        animator.SetFloat("inputY", intputY);
+        
     }
 }
